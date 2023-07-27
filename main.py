@@ -20,13 +20,16 @@ def main():
             n_score+=1
         else:
             s_score+=1
-        if simulation_date.hour == 22: 
-            simulation_date = simulation_date + dt.timedelta(hours=8)
-        else:
-            simulation_date = simulation_date + dt.timedelta(hours=1)
+        # if simulation_date.hour == 22: 
+        #     simulation_date = simulation_date + dt.timedelta(hours=8)
+        # else:
+        simulation_date = simulation_date + dt.timedelta(hours=1)
+
+    total_score = n_score + s_score
+    n_porc = (n_score / total_score) * 100
+    s_porc = (s_score / total_score) * 100
     
-    print(f"norte: {n_score}")
-    print(f"sur: {s_score}")
+    print(f"En el periodo de tiempo: {start_date}---{end_date} la densidad vehicular en la via con sentido Sur->Norte ha sido un {n_porc}% de veces mayor que la Norte->Sur y en el mismo periodo de tiempo pero en sentido Norte->Sur la densidad ha sido un {s_porc}% mayor que la Sur->Norte")
         
 
 
